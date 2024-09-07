@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqc6nd77tjvjp"]
+
+[ext_resource type="Script" path="res://scripts/ingredient.gd" id="1_o3e7h"]
+[ext_resource type="Texture2D" uid="uid://3ii2rs78beqi" path="res://icons/Check.png" id="2_wlqdr"]
+[ext_resource type="Texture2D" uid="uid://d32ypumaejn4" path="res://icons/Edit.png" id="3_jjd75"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hjbd"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 0.615686)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_shuiu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcvw5"]
+bg_color = Color(0, 0, 0, 0.4)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.118581, 0.118581, 0.118581, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udip5"]
+
+[node name="Ingredient" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 440.0
+grow_horizontal = 2
+script = ExtResource("1_o3e7h")
+
+[node name="Left" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Margin" type="Container" parent="Left"]
+layout_mode = 2
+
+[node name="CheckBox" type="Button" parent="Left"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2hjbd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2hjbd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_shuiu")
+toggle_mode = true
+
+[node name="Check" type="TextureRect" parent="Left/CheckBox"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+scale = Vector2(0.054, 0.054)
+mouse_filter = 2
+texture = ExtResource("2_wlqdr")
+
+[node name="Element" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 55
+bbcode_enabled = true
+text = "..."
+fit_content = true
+scroll_active = false
+
+[node name="TextEdit" type="TextEdit" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 55
+text = "..."
+scroll_fit_content_height = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_xcvw5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xcvw5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_udip5")
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/MarginContainer/Button"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.078, 0.078)
+mouse_filter = 2
+texture = ExtResource("3_jjd75")
+
+[connection signal="pressed" from="Left/CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]

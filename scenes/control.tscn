@@ -1,0 +1,149 @@
+[gd_scene load_steps=7 format=3 uid="uid://b64qrmwyupmhd"]
+
+[ext_resource type="Script" path="res://scripts/control.gd" id="1_68oic"]
+[ext_resource type="Texture2D" uid="uid://b28hnauo7cnyp" path="res://icons/Add.png" id="2_w5wxl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amku1"]
+bg_color = Color(1, 0.941176, 0.121569, 1)
+border_width_left = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.653375, 0.612487, 9.62615e-07, 1)
+border_blend = true
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5ug6"]
+bg_color = Color(0, 0, 0, 0.407843)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jypfp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0k2w"]
+bg_color = Color(0.577009, 0.577008, 0.577008, 1)
+border_width_left = 32
+border_width_top = 32
+border_width_right = 32
+border_width_bottom = 32
+border_color = Color(0.509286, 0.509286, 0.509286, 1)
+border_blend = true
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_68oic")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 205
+dragger_visibility = 2
+
+[node name="Header" type="Panel" parent="MarginContainer/Panel/VSplitContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_amku1")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/VSplitContainer/Header"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="Head" type="VBoxContainer" parent="MarginContainer/Panel/VSplitContainer/Header/MarginContainer"]
+layout_mode = 2
+
+[node name="Up" type="HBoxContainer" parent="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Dn" type="HBoxContainer" parent="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+alignment = 2
+
+[node name="Add" type="Button" parent="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h5ug6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h5ug6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h5ug6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jypfp")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/Add"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 913.0
+offset_bottom = 913.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+mouse_filter = 2
+texture = ExtResource("2_w5wxl")
+stretch_mode = 3
+
+[node name="Elements" type="Panel" parent="MarginContainer/Panel/VSplitContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d0k2w")
+
+[node name="Scroll" type="ScrollContainer" parent="MarginContainer/Panel/VSplitContainer/Elements"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/Panel/VSplitContainer/Elements/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 48
+
+[node name="NotesTop" type="VBoxContainer" parent="MarginContainer/Panel/VSplitContainer/Elements/Scroll/Margin"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[connection signal="pressed" from="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/Add" to="." method="_on_add_pressed"]

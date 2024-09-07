@@ -1,0 +1,195 @@
+[gd_scene load_steps=15 format=3 uid="uid://6xfn4nq2o6t2"]
+
+[ext_resource type="Script" path="res://scripts/note.gd" id="1_h66s6"]
+[ext_resource type="Texture2D" uid="uid://3ii2rs78beqi" path="res://icons/Check.png" id="2_0ccyf"]
+[ext_resource type="Texture2D" uid="uid://b28hnauo7cnyp" path="res://icons/Add.png" id="3_vhkoc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekrkk"]
+bg_color = Color(0.282353, 0.278431, 0, 0)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+shadow_color = Color(0.165656, 0.165656, 0.165656, 0.368627)
+shadow_size = 28
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a52ej"]
+bg_color = Color(0.647059, 0.172549, 0.580392, 0)
+border_width_bottom = 1
+shadow_color = Color(0.439216, 0.00784314, 0.439216, 0.419608)
+shadow_size = 14
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b03wv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_odss0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj0gd"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 0.615686)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.912289, 0.912289, 0.912289, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdahu"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 0.615686)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3kfx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mv1k5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe5r8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_offb2"]
+bg_color = Color(0, 0, 0, 0.164706)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.0207105, 0.237874, 1, 0.760784)
+border_blend = true
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fwwvw"]
+
+[node name="Note" type="PanelContainer"]
+custom_minimum_size = Vector2(1040, 256)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -520.0
+offset_right = 520.0
+offset_bottom = 349.0
+grow_horizontal = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_ekrkk")
+script = ExtResource("1_h66s6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="margin" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+
+[node name="Head" type="Panel" parent="VBoxContainer/margin"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_a52ej")
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer/margin/Head"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_constants/line_separation = 5
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[color=red]UNKNOWN"
+scroll_active = false
+
+[node name="Editor" type="HBoxContainer" parent="VBoxContainer/margin/Head"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleEdit" type="TextEdit" parent="VBoxContainer/margin/Head/Editor"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b03wv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_odss0")
+text = "Debug Title"
+
+[node name="CheckBox" type="Button" parent="VBoxContainer/margin/Head/Editor"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_dj0gd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vdahu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f3kfx")
+toggle_mode = true
+
+[node name="Check" type="TextureRect" parent="VBoxContainer/margin/Head/Editor/CheckBox"]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+scale = Vector2(0.086, 0.086)
+mouse_filter = 2
+texture = ExtResource("2_0ccyf")
+
+[node name="TitleButton" type="Button" parent="VBoxContainer/margin/Head"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mv1k5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xe5r8")
+button_mask = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="MarginText" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 0
+
+[node name="List" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginText"]
+layout_mode = 2
+
+[node name="MarginButtons" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 24
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginButtons"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="edit_note" type="Button" parent="VBoxContainer/MarginButtons/VBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_offb2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fwwvw")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginButtons/VBoxContainer/edit_note"]
+layout_mode = 1
+offset_right = 1024.0
+offset_bottom = 1024.0
+scale = Vector2(0.117, 0.117)
+mouse_filter = 2
+texture = ExtResource("3_vhkoc")
+
+[connection signal="focus_exited" from="VBoxContainer/margin/Head/Editor/TitleEdit" to="." method="_on_title_edit_focus_exited"]
+[connection signal="text_changed" from="VBoxContainer/margin/Head/Editor/TitleEdit" to="." method="_on_title_edit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/margin/Head/Editor/CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="VBoxContainer/margin/Head/TitleButton" to="." method="_on_title_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginButtons/VBoxContainer/edit_note" to="." method="_on_edit_note_pressed"]

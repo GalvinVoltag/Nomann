@@ -1,0 +1,13 @@
+{
+	"preferences": {
+		
+	},
+	"notes": [
+		{
+			"title": "Example Note",
+			"icon": 0,
+			"colors": [],
+			"note": "This is the ingredient of said note.",
+		}
+	]
+}
