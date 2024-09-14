@@ -11,7 +11,10 @@ func _ready():
 	Global.notetop = %NotesTop
 	Global.Load()
 	for nt in Global.AllNotes:
-		add_note_NR(nt["title"], nt["ingredients"], nt["checks"])
+		var sss = []
+		if nt.has("settings"):
+			sss = nt["settings"]
+		add_note_NR(nt["title"], nt["ingredients"], nt["checks"], sss)
 		print_rich("[color=green]", nt)
 
 
@@ -30,7 +33,7 @@ func add_note(title, ingredients, checks):
 	%NotesTop.add_child(newnote)
 	Global.Refresh()
 	
-func add_note_NR(title, ingredients, checks):
+func add_note_NR(title, ingredients, checks, settings):
 	note_count += 1
 	var newnote = notebase.instantiate()
 	newnote.set_title(title)
@@ -38,8 +41,26 @@ func add_note_NR(title, ingredients, checks):
 	for i in ingredients:
 		newnote.add_ingredient(i, checks[fori])
 		fori += 1
+	fori = 0
+	for s in settings:
+		newnote.set_setting(fori, Color(s))
+		#print_rich("[color=#", Color(s).to_html(), "] COLOR SET AS: ", s)
+		fori += 1
 	%NotesTop.add_child(newnote)
 
 func _on_add_pressed():
 	note_count += 1
 	add_note("New Note", ["..."], [false])
+	
+func carry_note_down(index):
+	print("CALLED ", index)
+	var the_one = %NotesTop.get_child(index)
+	%NotesTop.move_child(the_one, index+1)
+	Global.Refresh()
+	
+func carry_note_up(index):
+	if index > 0:
+		print("CALLED ", index)
+		var the_one = %NotesTop.get_child(index)
+		%NotesTop.move_child(the_one, index-1)
+		Global.Refresh()

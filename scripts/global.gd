@@ -3,7 +3,16 @@ extends Node
 var control : Control
 var notetop
 
-var AllNotes = [
+var DefaultColors : Array = [
+	"7002706b",
+	"00000000",
+	"ffffff",
+	"ccccccff",
+	"2a2a2a5e",
+	"2a2a2a00",
+]
+
+var AllNotes : Array = [
 	{
 		"title" = "No Note :D",
 		"ingredients" = [
@@ -38,9 +47,14 @@ func Refresh():
 		current["title"] = nt.get_title()
 		current["ingredients"] = []
 		current["checks"] = []
+		current["settings"] = []
 		for ing in nt.find_child("List").get_children():
 			current["ingredients"].append(ing.get_text())
 			current["checks"].append(ing.get_check())
+		var i = 0
+		for sttng in nt.AllSettings:
+			current["settings"].append(sttng.get_value().to_html())
+			i+=1
 		AllNotes.append(current)
 	print_rich("[color=orange]", AllNotes)
 	var file = FileAccess.open("user://file_data.json", FileAccess.WRITE)

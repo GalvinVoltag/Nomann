@@ -2,6 +2,7 @@ extends HBoxContainer
 
 @onready var pen = preload("res://icons/Edit.png")
 @onready var chk = preload("res://icons/Check.png")
+@onready var dlt = preload("res://icons/Delete.png")
 
 func get_text():
 	return $Element.text
@@ -36,7 +37,16 @@ func _on_button_pressed():
 		%icon.texture = chk
 	$TextEdit.visible = !$TextEdit.visible
 	$Element.visible = !$Element.visible
+	Global.Refresh()
 
 
 func _on_check_box_pressed():
 	$Left/CheckBox/Check.visible = !$Left/CheckBox/Check.visible
+	Global.Refresh()
+
+
+func _on_text_edit_text_changed():
+	if $TextEdit.text == "":
+		%icon.texture = dlt
+	else:
+		%icon.texture = chk

@@ -101,4 +101,5 @@ mouse_filter = 2
 texture = ExtResource("3_jjd75")
 
 [connection signal="pressed" from="Left/CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
