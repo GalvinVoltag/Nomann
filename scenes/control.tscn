@@ -1,17 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://b64qrmwyupmhd"]
+[gd_scene load_steps=19 format=3 uid="uid://b64qrmwyupmhd"]
 
 [ext_resource type="Script" path="res://scripts/control.gd" id="1_68oic"]
+[ext_resource type="Texture2D" uid="uid://bd1w4wyxl68sq" path="res://icons/Settings.png" id="2_aka5p"]
 [ext_resource type="Texture2D" uid="uid://b28hnauo7cnyp" path="res://icons/Add.png" id="2_w5wxl"]
+[ext_resource type="Texture2D" uid="uid://nwg42uf1s000" path="res://icons/Arrow_Back.png" id="4_m5rv1"]
+[ext_resource type="PackedScene" uid="uid://d21n0oa01l2kr" path="res://scenes/value.tscn" id="5_bajle"]
+[ext_resource type="Script" path="res://addons/DeeplinkPlugin/Deeplink.gd" id="6_1xa06"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amku1"]
 bg_color = Color(1, 0.941176, 0.121569, 1)
 border_width_left = 12
 border_width_right = 12
 border_width_bottom = 12
-border_color = Color(0.653375, 0.612487, 9.62615e-07, 1)
+border_color = Color(0.286275, 0.286275, 0.286275, 0.588235)
 border_blend = true
 corner_radius_bottom_right = 24
 corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jypfp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5ug6"]
 bg_color = Color(0, 0, 0, 0.407843)
@@ -20,18 +26,89 @@ corner_radius_top_right = 48
 corner_radius_bottom_right = 48
 corner_radius_bottom_left = 48
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jypfp"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0k2w"]
 bg_color = Color(0.577009, 0.577008, 0.577008, 1)
 border_width_left = 32
 border_width_top = 32
 border_width_right = 32
 border_width_bottom = 32
-border_color = Color(0.509286, 0.509286, 0.509286, 1)
+border_color = Color(0.505344, 0.505344, 0.505344, 1)
 border_blend = true
 corner_radius_top_left = 24
 corner_radius_top_right = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kuwfe"]
+content_margin_left = 42.0
+content_margin_top = 64.0
+content_margin_right = 42.0
+content_margin_bottom = 64.0
+bg_color = Color(0.129558, 0.129559, 0.129558, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxicq"]
+content_margin_left = 18.0
+content_margin_right = 18.0
+bg_color = Color(0.355314, 0.355314, 0.355313, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j12r0"]
+content_margin_left = 18.0
+content_margin_right = 18.0
+bg_color = Color(0.158472, 0.158472, 0.158472, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ahsl4"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.28485, 0.28485, 0.28485, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ym5j1"]
+content_margin_left = 18.0
+content_margin_right = 18.0
+bg_color = Color(0.355314, 0.355314, 0.355313, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_602xs"]
+content_margin_left = 18.0
+content_margin_right = 18.0
+bg_color = Color(0.158472, 0.158472, 0.158472, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0ihj"]
+content_margin_left = 18.0
+content_margin_right = 18.0
+bg_color = Color(0.141176, 0.631373, 0.145098, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1klh"]
+content_margin_left = 18.0
+content_margin_right = 18.0
+bg_color = Color(0.501961, 0.156863, 0.156863, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -92,16 +169,49 @@ size_flags_vertical = 3
 theme_override_constants/separation = 24
 alignment = 2
 
-[node name="Add" type="Button" parent="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn"]
+[node name="R" type="HBoxContainer" parent="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn"]
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/R"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_h5ug6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jypfp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h5ug6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h5ug6")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_jypfp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h5ug6")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/Add"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/R/Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 913.0
+offset_bottom = 913.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+mouse_filter = 2
+texture = ExtResource("2_aka5p")
+stretch_mode = 3
+
+[node name="L" type="HBoxContainer" parent="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Add" type="Button" parent="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/L"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jypfp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h5ug6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h5ug6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h5ug6")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/L/Add"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -146,4 +256,167 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 32
 
-[connection signal="pressed" from="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/Add" to="." method="_on_add_pressed"]
+[node name="SettingsM" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 0
+offset_left = -1080.0
+offset_bottom = 1920.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kuwfe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsM"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="SttBck" type="Button" parent="SettingsM/VBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jypfp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h5ug6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h5ug6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h5ug6")
+
+[node name="TextureRect" type="TextureRect" parent="SettingsM/VBoxContainer/SttBck"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 913.0
+offset_bottom = 913.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+mouse_filter = 2
+texture = ExtResource("4_m5rv1")
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsM/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SettingsM/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 48
+text = "Paste external list:"
+fit_content = true
+
+[node name="Paste" type="Button" parent="SettingsM/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nxicq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j12r0")
+text = "Paste from clipboard"
+
+[node name="ExtJson" type="TextEdit" parent="SettingsM/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 512)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ahsl4")
+
+[node name="HExtBt" type="HBoxContainer" parent="SettingsM/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsM/VBoxContainer/HExtBt"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ClearExt" type="Button" parent="SettingsM/VBoxContainer/HExtBt/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ym5j1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_602xs")
+text = "Clear"
+
+[node name="AddExt" type="Button" parent="SettingsM/VBoxContainer/HExtBt"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 48
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ym5j1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_602xs")
+text = "Add Note"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SettingsM/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center][u]Other Settings"
+fit_content = true
+
+[node name="AlertStt" type="Button" parent="SettingsM/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i0ihj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l1klh")
+toggle_mode = true
+button_pressed = true
+text = "Alert When Sharing"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="SettingsM/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center][u]
+
+Color Settings"
+fit_content = true
+
+[node name="ColorRow1" type="HBoxContainer" parent="SettingsM/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="hdr" parent="SettingsM/VBoxContainer/ColorRow1" node_paths=PackedStringArray("Target") instance=ExtResource("5_bajle")]
+layout_mode = 2
+text = "Header Color"
+Target = NodePath("../../../../MarginContainer/Panel/VSplitContainer/Header")
+IsPanel = true
+target_values = ["bg_color"]
+value_c = Color(1, 0.941176, 0.121569, 1)
+
+[node name="pnl" parent="SettingsM/VBoxContainer/ColorRow1" node_paths=PackedStringArray("Target") instance=ExtResource("5_bajle")]
+layout_mode = 2
+text = "Header Border Color"
+Target = NodePath("../../../../MarginContainer/Panel/VSplitContainer/Header")
+IsPanel = true
+target_values = ["border_color"]
+value_c = Color(0.545098, 0.513726, 0, 1)
+
+[node name="ColorRow2" type="HBoxContainer" parent="SettingsM/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="hdr" parent="SettingsM/VBoxContainer/ColorRow2" node_paths=PackedStringArray("Target") instance=ExtResource("5_bajle")]
+layout_mode = 2
+text = "Panel Color"
+Target = NodePath("../../../../MarginContainer/Panel/VSplitContainer/Elements")
+IsPanel = true
+target_values = ["bg_color"]
+value_c = Color(0.576471, 0.576471, 0.576471, 1)
+
+[node name="pnl" parent="SettingsM/VBoxContainer/ColorRow2" node_paths=PackedStringArray("Target") instance=ExtResource("5_bajle")]
+layout_mode = 2
+text = "Panel Border Color"
+Target = NodePath("../../../../MarginContainer/Panel/VSplitContainer/Elements")
+IsPanel = true
+target_values = ["border_color"]
+value_c = Color(0.42365, 0.423651, 0.423651, 1)
+
+[node name="Deeplink" type="Node" parent="."]
+script = ExtResource("6_1xa06")
+scheme = "nomann"
+host = "note"
+
+[connection signal="pressed" from="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/R/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/L/Add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="SettingsM/VBoxContainer/SttBck" to="." method="_on_stt_bck_pressed"]
+[connection signal="pressed" from="SettingsM/VBoxContainer/HBoxContainer/Paste" to="." method="_on_paste_pressed"]
+[connection signal="pressed" from="SettingsM/VBoxContainer/HExtBt/HBoxContainer/ClearExt" to="." method="_on_clear_ext_pressed"]
+[connection signal="pressed" from="SettingsM/VBoxContainer/HExtBt/AddExt" to="." method="_on_add_ext_pressed"]
+[connection signal="toggled" from="SettingsM/VBoxContainer/AlertStt" to="." method="_on_alert_stt_toggled"]
+[connection signal="deeplink_received" from="Deeplink" to="." method="_on_deeplink_deeplink_received"]

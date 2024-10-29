@@ -6,6 +6,8 @@ extends PanelContainer
 
 @export var AllSettings: Array[Control]
 
+var singleton = null
+var murl = "https://galvinvoltag.github.io/galvinvoltag.com/nomann"
 
 
 func set_title(title):
@@ -24,6 +26,45 @@ func add_ingredient(text, check = false):
 func set_setting(index: int, value):
 	AllSettings[index].set_value(value)
 
+func encode_uri_component(uri: String) -> String:
+	# Characters that don't need to be encoded
+	var safe_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.!~*'()"
+	var encoded = ""
+	
+	for i in range(uri.length()):
+		var c = uri[i]
+		if safe_chars.find(c) != -1:
+			encoded += c
+		else:
+			# Convert character to UTF-8 bytes and percent-encode each byte
+			var bytes = c.to_utf8_buffer()
+			for byte in bytes:
+				encoded += "%%%02X" % byte
+	return encoded
+
+func get_note_json():
+	var current = {}
+	current["title"] = get_title()
+	current["ingredients"] = []
+	current["checks"] = []
+	current["settings"] = []
+	for ing in find_child("List").get_children():
+		current["ingredients"].append(ing.get_text())
+		current["checks"].append(ing.get_check())
+	var i = 0
+	for sttng in AllSettings:
+		current["settings"].append(sttng.get_value().to_html())
+		i+=1
+	return current
+
+func get_note_url():
+	var title = encode_uri_component(get_title())
+	var notes = ""
+	var checks = ""
+	for ing in find_child("List").get_children():
+		notes += encode_uri_component("[" + str(int(ing.get_check())) + "]" + ing.get_text())
+	return murl + "?title=" + title + "&notes=" + notes
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var m : StyleBox = %Head.get_theme_stylebox("Panel")
@@ -35,6 +76,8 @@ func _ready():
 			mmm = i
 		i += 1
 	print_rich("[color=red]", mmm , "   " , mm[mmm])
+	if Engine.has_singleton("GodotShare"):
+		singleton = Engine.get_singleton("GodotShare")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -69,10 +112,11 @@ func _on_title_edit_text_changed():
 func _on_check_box_pressed():
 	if %TitleEdit.text == "":
 		$".".queue_free()
-	set_title(%TitleEdit.text)
-	%Title.visible = true
-	%Editor.visible = false
-	%TitleButton.visible = true
+	else: 
+		set_title(%TitleEdit.text)
+		%Title.visible = true
+		%Editor.visible = false
+		%TitleButton.visible = true
 	Global.Refresh()
 
 
@@ -95,4 +139,19 @@ func _on_rst_pressed():
 	for stg in AllSettings:
 		stg.set_value(Global.DefaultColors[i])
 		i += 1
+	%titleToggle.button_pressed = true
+	%Head.visible = true
 	Global.Refresh()
+
+
+func _on_title_toggle_toggled(toggled_on):
+	%Head.visible = toggled_on
+
+func _on_shr_pressed():
+	#singleton.shareText("tite", "subject", "Test line share complete")
+	#DisplayServer.clipboard_set(JSON.stringify(get_note_json(), "   ", true, false))
+	DisplayServer.clipboard_set(get_note_url())
+	if Global.Stt_Alert_Share:
+		OS.alert("The list has been copied to clipboard", "Success!")
+	
+	

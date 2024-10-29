@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://6xfn4nq2o6t2"]
+[gd_scene load_steps=26 format=3 uid="uid://6xfn4nq2o6t2"]
 
 [ext_resource type="Script" path="res://scripts/note.gd" id="1_h66s6"]
 [ext_resource type="Texture2D" uid="uid://3ii2rs78beqi" path="res://icons/Check.png" id="2_0ccyf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d21n0oa01l2kr" path="res://scenes/value.tscn" id="5_qajn5"]
 [ext_resource type="Texture2D" uid="uid://q3mbnvocjw5p" path="res://icons/Arrow.png" id="6_q50ub"]
 [ext_resource type="Texture2D" uid="uid://b8tj2n8ppqs3o" path="res://icons/restart.png" id="6_wbvmg"]
+[ext_resource type="Texture2D" uid="uid://bm0g118iqy7ma" path="res://icons/Share.png" id="8_xagwj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekrkk"]
 bg_color = Color(0.282353, 0.278431, 0, 0)
@@ -23,13 +24,7 @@ border_width_bottom = 1
 shadow_color = Color(0.439216, 0.00784314, 0.439216, 0.419608)
 shadow_size = 14
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj0gd"]
-bg_color = Color(0.141176, 0.141176, 0.141176, 0.615686)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.912289, 0.912289, 0.912289, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3kfx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdahu"]
 bg_color = Color(0.141176, 0.141176, 0.141176, 0.615686)
@@ -38,11 +33,30 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3kfx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj0gd"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 0.615686)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.912289, 0.912289, 0.912289, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe5r8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mv1k5"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe5r8"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fwwvw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmamk"]
+bg_color = Color(0, 0, 0, 0.639216)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_color = Color(0.716101, 0.726596, 0.688395, 0.823529)
+border_blend = true
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbxyp"]
 bg_color = Color(0, 0, 0, 0.164706)
@@ -56,19 +70,6 @@ corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmamk"]
-bg_color = Color(0, 0, 0, 0.639216)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_color = Color(0.716101, 0.726596, 0.688395, 0.823529)
-border_blend = true
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-expand_margin_bottom = 4.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fwwvw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_offb2"]
 bg_color = Color(0, 0, 0, 0.164706)
@@ -84,16 +85,26 @@ corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6xk0"]
+content_margin_left = 8.0
+content_margin_right = 7.0
 bg_color = Color(0, 0, 0, 0.643137)
 border_width_top = 1
 border_color = Color(0.8, 0.8, 0.8, 0.384314)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqaok"]
-bg_color = Color(0.0980392, 0.0980392, 0.0980392, 0.243137)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bklsf"]
+bg_color = Color(0, 0.450301, 0.301629, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.133196, 0.133196, 0.133196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x76x8"]
+bg_color = Color(0.517647, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qf6c"]
 bg_color = Color(0.0980392, 0.0980392, 0.0980392, 0.243137)
@@ -102,6 +113,13 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.572988, 0.572988, 0.572988, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqaok"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 0.243137)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e7jgw"]
 bg_color = Color(0.0980392, 0.0980392, 0.0980392, 0.243137)
@@ -168,9 +186,9 @@ caret_multiple = false
 unique_name_in_owner = true
 custom_minimum_size = Vector2(88, 88)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_dj0gd")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_vdahu")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_f3kfx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vdahu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dj0gd")
 toggle_mode = true
 
 [node name="Check" type="TextureRect" parent="VBoxContainer/margin/Head/Editor/CheckBox"]
@@ -185,8 +203,8 @@ texture = ExtResource("2_0ccyf")
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/normal = SubResource("StyleBoxEmpty_mv1k5")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_xe5r8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mv1k5")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -219,9 +237,9 @@ alignment = 2
 custom_minimum_size = Vector2(100, 66.92)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_wbxyp")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_nmamk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fwwvw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nmamk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wbxyp")
 toggle_mode = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginButtons/VBoxContainer/Left/more"]
@@ -238,8 +256,8 @@ texture = ExtResource("3_b6h6x")
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_offb2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fwwvw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_offb2")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginButtons/VBoxContainer/add_ing"]
 layout_mode = 1
@@ -319,17 +337,31 @@ value_c = Color(0.164706, 0.164706, 0.164706, 0)
 
 [node name="row3" type="HBoxContainer" parent="VBoxContainer/PanelContainer/more_sett"]
 layout_mode = 2
+alignment = 1
+
+[node name="titleToggle" type="Button" parent="VBoxContainer/PanelContainer/more_sett/row3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 44
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bklsf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_x76x8")
+toggle_mode = true
+button_pressed = true
+text = " toggle title "
+
+[node name="row4" type="HBoxContainer" parent="VBoxContainer/PanelContainer/more_sett"]
+layout_mode = 2
 theme_override_constants/separation = 75
 alignment = 1
 
-[node name="rst" type="Button" parent="VBoxContainer/PanelContainer/more_sett/row3"]
+[node name="rst" type="Button" parent="VBoxContainer/PanelContainer/more_sett/row4"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_dqaok")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1qf6c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dqaok")
 
-[node name="txtr" type="TextureRect" parent="VBoxContainer/PanelContainer/more_sett/row3/rst"]
+[node name="txtr" type="TextureRect" parent="VBoxContainer/PanelContainer/more_sett/row4/rst"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -338,14 +370,14 @@ scale = Vector2(0.155, -0.155)
 texture = ExtResource("6_wbvmg")
 flip_h = true
 
-[node name="up" type="Button" parent="VBoxContainer/PanelContainer/more_sett/row3"]
+[node name="up" type="Button" parent="VBoxContainer/PanelContainer/more_sett/row4"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_e7jgw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1qf6c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e7jgw")
 
-[node name="txtr" type="TextureRect" parent="VBoxContainer/PanelContainer/more_sett/row3/up"]
+[node name="txtr" type="TextureRect" parent="VBoxContainer/PanelContainer/more_sett/row4/up"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -353,14 +385,14 @@ rotation = 1.5708
 scale = Vector2(0.078, -0.078)
 texture = ExtResource("6_q50ub")
 
-[node name="dn" type="Button" parent="VBoxContainer/PanelContainer/more_sett/row3"]
+[node name="dn" type="Button" parent="VBoxContainer/PanelContainer/more_sett/row4"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_dqaok")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1qf6c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dqaok")
 
-[node name="txtr" type="TextureRect" parent="VBoxContainer/PanelContainer/more_sett/row3/dn"]
+[node name="txtr" type="TextureRect" parent="VBoxContainer/PanelContainer/more_sett/row4/dn"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -369,12 +401,29 @@ scale = Vector2(0.078, -0.078)
 texture = ExtResource("6_q50ub")
 flip_h = true
 
+[node name="shr" type="Button" parent="VBoxContainer/PanelContainer/more_sett/row4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1qf6c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dqaok")
+
+[node name="txtr" type="TextureRect" parent="VBoxContainer/PanelContainer/more_sett/row4/shr"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.078, 0.078)
+texture = ExtResource("8_xagwj")
+flip_h = true
+
 [connection signal="focus_exited" from="VBoxContainer/margin/Head/Editor/TitleEdit" to="." method="_on_title_edit_focus_exited"]
 [connection signal="text_changed" from="VBoxContainer/margin/Head/Editor/TitleEdit" to="." method="_on_title_edit_text_changed"]
 [connection signal="pressed" from="VBoxContainer/margin/Head/Editor/CheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="pressed" from="VBoxContainer/margin/Head/TitleButton" to="." method="_on_title_button_pressed"]
 [connection signal="toggled" from="VBoxContainer/MarginButtons/VBoxContainer/Left/more" to="." method="_on_more_toggled"]
 [connection signal="pressed" from="VBoxContainer/MarginButtons/VBoxContainer/add_ing" to="." method="_on_edit_note_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/more_sett/row3/rst" to="." method="_on_rst_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/more_sett/row3/up" to="." method="_on_up_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/more_sett/row3/dn" to="." method="_on_dn_pressed"]
+[connection signal="toggled" from="VBoxContainer/PanelContainer/more_sett/row3/titleToggle" to="." method="_on_title_toggle_toggled"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/more_sett/row4/rst" to="." method="_on_rst_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/more_sett/row4/up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/more_sett/row4/dn" to="." method="_on_dn_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/more_sett/row4/shr" to="." method="_on_shr_pressed"]

@@ -3,6 +3,12 @@ extends Node
 var control : Control
 var notetop
 
+var Stt_Alert_Share = true
+
+var AppData : Dictionary = {
+	
+}
+
 var DefaultColors : Array = [
 	"7002706b",
 	"00000000",
@@ -11,6 +17,20 @@ var DefaultColors : Array = [
 	"2a2a2a5e",
 	"2a2a2a00",
 ]
+
+var SharedNote : Dictionary = {
+	"title" = "SharedNote%42ERR&nullptr0x000066",
+		"ingredients" = [
+			"",
+			"",
+			"&nullptr0x000066"
+		],
+		"checks" = [
+			false,
+			false,
+			false
+		]
+	}
 
 var AllNotes : Array = [
 	{
@@ -68,6 +88,18 @@ func Load():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if OS.has_feature("Android"):
+		var args = OS.get_cmdline_args()
+		for arg in args:
+			if arg.begins_with("nomann://note/"):
+				var data = arg.substr(13)
+				
+	if Engine.has_singleton("GodotApp"):
+		var godot_app = Engine.get_singleton("GodotApp")
+		var url_data = godot_app.getUrlData()
+		print("UrlData: ", url_data)
+	else:
+		print("No Singleton")
 	var data = FileAccess.get_file_as_string("user://file_data.json")
 	if JSON.parse_string(data) != null:
 		AllNotes = JSON.parse_string(data)
