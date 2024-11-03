@@ -1,4 +1,0 @@
-#Tue Oct 29 17:38:14 TRT 2024
-base.0=C\:\\Users\\AADUMAN\\Documents\\GODOT_4\\Projects\\NOM\\NOMANN\\android\\build\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b64qrmwyupmhd"]
+[gd_scene load_steps=24 format=3 uid="uid://b64qrmwyupmhd"]
 
 [ext_resource type="Script" path="res://scripts/control.gd" id="1_68oic"]
 [ext_resource type="Texture2D" uid="uid://bd1w4wyxl68sq" path="res://icons/Settings.png" id="2_aka5p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://nwg42uf1s000" path="res://icons/Arrow_Back.png" id="4_m5rv1"]
 [ext_resource type="PackedScene" uid="uid://d21n0oa01l2kr" path="res://scenes/value.tscn" id="5_bajle"]
 [ext_resource type="Script" path="res://addons/DeeplinkPlugin/Deeplink.gd" id="6_1xa06"]
+[ext_resource type="PackedScene" uid="uid://6xfn4nq2o6t2" path="res://scenes/note.tscn" id="6_uft3y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amku1"]
 bg_color = Color(1, 0.941176, 0.121569, 1)
@@ -38,11 +39,13 @@ corner_radius_top_left = 24
 corner_radius_top_right = 24
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kuwfe"]
-content_margin_left = 42.0
+content_margin_left = 16.0
 content_margin_top = 64.0
-content_margin_right = 42.0
+content_margin_right = 12.0
 content_margin_bottom = 64.0
 bg_color = Color(0.129558, 0.129559, 0.129558, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tme7i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxicq"]
 content_margin_left = 18.0
@@ -92,6 +95,8 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2ajp"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0ihj"]
 content_margin_left = 18.0
 content_margin_right = 18.0
@@ -109,6 +114,11 @@ border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph25j"]
+bg_color = Color(0.576471, 0.576471, 0.576471, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_31n46"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -264,11 +274,26 @@ offset_left = -1080.0
 offset_bottom = 1920.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kuwfe")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsM"]
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsM"]
 layout_mode = 2
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsM/ScrollContainer"]
+layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 32
 
-[node name="SttBck" type="Button" parent="SettingsM/VBoxContainer"]
+[node name="HSlider" type="HSlider" parent="SettingsM/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_tme7i")
+max_value = 255.0
+value = 19.0
+rounded = true
+tick_count = 32
+ticks_on_borders = true
+
+[node name="SttBck" type="Button" parent="SettingsM/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -278,7 +303,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_h5ug6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h5ug6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_h5ug6")
 
-[node name="TextureRect" type="TextureRect" parent="SettingsM/VBoxContainer/SttBck"]
+[node name="TextureRect" type="TextureRect" parent="SettingsM/ScrollContainer/VBoxContainer/SttBck"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -294,38 +319,43 @@ mouse_filter = 2
 texture = ExtResource("4_m5rv1")
 stretch_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingsM/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsM/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SettingsM/VBoxContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SettingsM/ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 48
-text = "Paste external list:"
+text = "Paste list JSON:"
 fit_content = true
 
-[node name="Paste" type="Button" parent="SettingsM/VBoxContainer/HBoxContainer"]
+[node name="Paste" type="Button" parent="SettingsM/ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nxicq")
 theme_override_styles/normal = SubResource("StyleBoxFlat_j12r0")
 text = "Paste from clipboard"
 
-[node name="ExtJson" type="TextEdit" parent="SettingsM/VBoxContainer"]
+[node name="ExtJson" type="TextEdit" parent="SettingsM/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 512)
+custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_ahsl4")
+scroll_fit_content_height = true
 
-[node name="HExtBt" type="HBoxContainer" parent="SettingsM/VBoxContainer"]
+[node name="HExtBt" type="HBoxContainer" parent="SettingsM/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingsM/VBoxContainer/HExtBt"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsM/ScrollContainer/VBoxContainer/HExtBt"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
-[node name="ClearExt" type="Button" parent="SettingsM/VBoxContainer/HExtBt/HBoxContainer"]
+[node name="ClearExt" type="Button" parent="SettingsM/ScrollContainer/VBoxContainer/HExtBt/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 48
@@ -333,7 +363,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ym5j1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_602xs")
 text = "Clear"
 
-[node name="AddExt" type="Button" parent="SettingsM/VBoxContainer/HExtBt"]
+[node name="AddExt" type="Button" parent="SettingsM/ScrollContainer/VBoxContainer/HExtBt"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 48
@@ -341,82 +371,142 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ym5j1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_602xs")
 text = "Add Note"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SettingsM/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SettingsM/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
 text = "[center][u]Other Settings"
 fit_content = true
 
-[node name="AlertStt" type="Button" parent="SettingsM/VBoxContainer"]
+[node name="AlertStt" type="Button" parent="SettingsM/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l2ajp")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_i0ihj")
 theme_override_styles/normal = SubResource("StyleBoxFlat_l1klh")
 toggle_mode = true
 button_pressed = true
 text = "Alert When Sharing"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="SettingsM/VBoxContainer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="SettingsM/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
 text = "[center][u]
-
 Color Settings"
 fit_content = true
 
-[node name="ColorRow1" type="HBoxContainer" parent="SettingsM/VBoxContainer"]
+[node name="ColorRow1" type="HBoxContainer" parent="SettingsM/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 32
 
-[node name="hdr" parent="SettingsM/VBoxContainer/ColorRow1" node_paths=PackedStringArray("Target") instance=ExtResource("5_bajle")]
+[node name="hdr" parent="SettingsM/ScrollContainer/VBoxContainer/ColorRow1" instance=ExtResource("5_bajle")]
 layout_mode = 2
+mouse_filter = 2
 text = "Header Color"
-Target = NodePath("../../../../MarginContainer/Panel/VSplitContainer/Header")
+Targets = [NodePath("../../../../../MarginContainer/Panel/VSplitContainer/Header")]
 IsPanel = true
 target_values = ["bg_color"]
 value_c = Color(1, 0.941176, 0.121569, 1)
+does_save = true
 
-[node name="pnl" parent="SettingsM/VBoxContainer/ColorRow1" node_paths=PackedStringArray("Target") instance=ExtResource("5_bajle")]
+[node name="pnl" parent="SettingsM/ScrollContainer/VBoxContainer/ColorRow1" instance=ExtResource("5_bajle")]
 layout_mode = 2
+mouse_filter = 2
 text = "Header Border Color"
-Target = NodePath("../../../../MarginContainer/Panel/VSplitContainer/Header")
+Targets = [NodePath("../../../../../MarginContainer/Panel/VSplitContainer/Header")]
 IsPanel = true
 target_values = ["border_color"]
 value_c = Color(0.545098, 0.513726, 0, 1)
+does_save = true
 
-[node name="ColorRow2" type="HBoxContainer" parent="SettingsM/VBoxContainer"]
+[node name="ColorRow2" type="HBoxContainer" parent="SettingsM/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 32
 
-[node name="hdr" parent="SettingsM/VBoxContainer/ColorRow2" node_paths=PackedStringArray("Target") instance=ExtResource("5_bajle")]
+[node name="hdr" parent="SettingsM/ScrollContainer/VBoxContainer/ColorRow2" instance=ExtResource("5_bajle")]
 layout_mode = 2
+mouse_filter = 2
 text = "Panel Color"
-Target = NodePath("../../../../MarginContainer/Panel/VSplitContainer/Elements")
+Targets = [NodePath("../../../../../MarginContainer/Panel/VSplitContainer/Elements"), NodePath("../../PanelContainer")]
 IsPanel = true
 target_values = ["bg_color"]
 value_c = Color(0.576471, 0.576471, 0.576471, 1)
+does_save = true
 
-[node name="pnl" parent="SettingsM/VBoxContainer/ColorRow2" node_paths=PackedStringArray("Target") instance=ExtResource("5_bajle")]
+[node name="pnl" parent="SettingsM/ScrollContainer/VBoxContainer/ColorRow2" instance=ExtResource("5_bajle")]
 layout_mode = 2
+mouse_filter = 2
 text = "Panel Border Color"
-Target = NodePath("../../../../MarginContainer/Panel/VSplitContainer/Elements")
+Targets = [NodePath("../../../../../MarginContainer/Panel/VSplitContainer/Elements")]
 IsPanel = true
 target_values = ["border_color"]
 value_c = Color(0.42365, 0.423651, 0.423651, 1)
+does_save = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="SettingsM/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center][u]
+Default Note"
+fit_content = true
+
+[node name="PanelContainer" type="PanelContainer" parent="SettingsM/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ph25j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsM/ScrollContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Default Note" parent="SettingsM/ScrollContainer/VBoxContainer/PanelContainer/VBoxContainer" instance=ExtResource("6_uft3y")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SveDef" type="Button" parent="SettingsM/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 46
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ym5j1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_602xs")
+text = "Save Preset"
+
+[node name="PanelContainer2" type="PanelContainer" parent="SettingsM/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 800)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_31n46")
 
 [node name="Deeplink" type="Node" parent="."]
 script = ExtResource("6_1xa06")
 scheme = "nomann"
 host = "note"
 
+[node name="ColorPicker" type="ColorPicker" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 405.0
+offset_bottom = 576.0
+picker_shape = 1
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
+
 [connection signal="pressed" from="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/R/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/L/Add" to="." method="_on_add_pressed"]
-[connection signal="pressed" from="SettingsM/VBoxContainer/SttBck" to="." method="_on_stt_bck_pressed"]
-[connection signal="pressed" from="SettingsM/VBoxContainer/HBoxContainer/Paste" to="." method="_on_paste_pressed"]
-[connection signal="pressed" from="SettingsM/VBoxContainer/HExtBt/HBoxContainer/ClearExt" to="." method="_on_clear_ext_pressed"]
-[connection signal="pressed" from="SettingsM/VBoxContainer/HExtBt/AddExt" to="." method="_on_add_ext_pressed"]
-[connection signal="toggled" from="SettingsM/VBoxContainer/AlertStt" to="." method="_on_alert_stt_toggled"]
+[connection signal="pressed" from="SettingsM/ScrollContainer/VBoxContainer/SttBck" to="." method="_on_stt_bck_pressed"]
+[connection signal="pressed" from="SettingsM/ScrollContainer/VBoxContainer/HBoxContainer/Paste" to="." method="_on_paste_pressed"]
+[connection signal="pressed" from="SettingsM/ScrollContainer/VBoxContainer/HExtBt/HBoxContainer/ClearExt" to="." method="_on_clear_ext_pressed"]
+[connection signal="pressed" from="SettingsM/ScrollContainer/VBoxContainer/HExtBt/AddExt" to="." method="_on_add_ext_pressed"]
+[connection signal="toggled" from="SettingsM/ScrollContainer/VBoxContainer/AlertStt" to="." method="_on_alert_stt_toggled"]
+[connection signal="pressed" from="SettingsM/ScrollContainer/VBoxContainer/SveDef" to="." method="_on_sve_def_pressed"]
 [connection signal="deeplink_received" from="Deeplink" to="." method="_on_deeplink_deeplink_received"]

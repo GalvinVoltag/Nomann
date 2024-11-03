@@ -60,10 +60,25 @@ func get_note_json():
 func get_note_url():
 	var title = encode_uri_component(get_title())
 	var notes = ""
-	var checks = ""
 	for ing in find_child("List").get_children():
 		notes += encode_uri_component("[" + str(int(ing.get_check())) + "]" + ing.get_text())
 	return murl + "?title=" + title + "&notes=" + notes
+
+func match_note_to_json(nt : Dictionary):
+	#var nt = JSON.parse_string(str)
+	var sss = []
+	if nt.has("settings"):
+		sss = nt["settings"]
+		var fori = 0
+		for i in nt["settings"]:
+			set_setting(fori, nt["settings"][fori])
+			fori+=1
+	set_title(nt["title"])
+	var fori = 0
+	for i in nt["ingredients"]:
+		add_ingredient(i, nt["checks"][fori])
+		fori+=1
+	#add_note_NR(nt["title"], nt["ingredients"], nt["checks"], sss)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -111,6 +126,7 @@ func _on_title_edit_text_changed():
 
 func _on_check_box_pressed():
 	if %TitleEdit.text == "":
+		Global.RefreshLater()
 		$".".queue_free()
 	else: 
 		set_title(%TitleEdit.text)

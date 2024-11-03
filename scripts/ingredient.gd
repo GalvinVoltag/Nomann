@@ -35,6 +35,9 @@ func _on_button_pressed():
 		%icon.texture = pen
 	else:
 		%icon.texture = chk
+		$TextEdit.set_caret_column($TextEdit.text.length())
+		$TextEdit.grab_focus()
+		$TextEdit.start_action(TextEdit.ACTION_TYPING)
 	$TextEdit.visible = !$TextEdit.visible
 	$Element.visible = !$Element.visible
 	Global.Refresh()

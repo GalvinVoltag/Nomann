@@ -285,52 +285,52 @@ theme_override_constants/separation = 17
 [node name="row1" type="HBoxContainer" parent="VBoxContainer/PanelContainer/more_sett"]
 layout_mode = 2
 
-[node name="hdr_c" parent="VBoxContainer/PanelContainer/more_sett/row1" node_paths=PackedStringArray("Target") instance=ExtResource("5_qajn5")]
+[node name="hdr_c" parent="VBoxContainer/PanelContainer/more_sett/row1" instance=ExtResource("5_qajn5")]
 layout_mode = 2
 text = "header color"
-Target = NodePath("../../../../margin/Head")
+Targets = [NodePath("../../../../margin/Head")]
 IsPanel = true
 target_values = ["shadow_color"]
 value_c = Color(0.439216, 0.00784314, 0.439216, 0.419608)
 
-[node name="hd2_c" parent="VBoxContainer/PanelContainer/more_sett/row1" node_paths=PackedStringArray("Target") instance=ExtResource("5_qajn5")]
+[node name="hd2_c" parent="VBoxContainer/PanelContainer/more_sett/row1" instance=ExtResource("5_qajn5")]
 layout_mode = 2
 text = "header color2"
-Target = NodePath("../../../../margin/Head")
+Targets = [NodePath("../../../../margin/Head")]
 IsPanel = true
 target_values = ["bg_color"]
 value_c = Color(0, 0, 0, 0)
 
-[node name="ttl_c" parent="VBoxContainer/PanelContainer/more_sett/row1" node_paths=PackedStringArray("Target") instance=ExtResource("5_qajn5")]
+[node name="ttl_c" parent="VBoxContainer/PanelContainer/more_sett/row1" instance=ExtResource("5_qajn5")]
 layout_mode = 2
 text = "title color"
-Target = NodePath("../../../../margin/Head/Title")
+Targets = [NodePath("../../../../margin/Head/Title")]
 target_values = ["default_color"]
 value_c = Color(1, 1, 1, 1)
 
 [node name="row2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/more_sett"]
 layout_mode = 2
 
-[node name="brd_c" parent="VBoxContainer/PanelContainer/more_sett/row2" node_paths=PackedStringArray("Target") instance=ExtResource("5_qajn5")]
+[node name="brd_c" parent="VBoxContainer/PanelContainer/more_sett/row2" instance=ExtResource("5_qajn5")]
 layout_mode = 2
 text = "border color"
-Target = NodePath("../../../../..")
+Targets = [NodePath("../../../../..")]
 IsPanel = true
 target_values = ["border_color"]
 value_c = Color(0.439216, 0.00784314, 0.439216, 0.419608)
 
-[node name="msd_c" parent="VBoxContainer/PanelContainer/more_sett/row2" node_paths=PackedStringArray("Target") instance=ExtResource("5_qajn5")]
+[node name="msd_c" parent="VBoxContainer/PanelContainer/more_sett/row2" instance=ExtResource("5_qajn5")]
 layout_mode = 2
 text = "Volume color"
-Target = NodePath("../../../../..")
+Targets = [NodePath("../../../../..")]
 IsPanel = true
 target_values = ["shadow_color"]
 value_c = Color(0.164706, 0.164706, 0.164706, 0.368627)
 
-[node name="mbg_c" parent="VBoxContainer/PanelContainer/more_sett/row2" node_paths=PackedStringArray("Target") instance=ExtResource("5_qajn5")]
+[node name="mbg_c" parent="VBoxContainer/PanelContainer/more_sett/row2" instance=ExtResource("5_qajn5")]
 layout_mode = 2
 text = "BG color"
-Target = NodePath("../../../../..")
+Targets = [NodePath("../../../../..")]
 IsPanel = true
 target_values = ["bg_color"]
 value_c = Color(0.164706, 0.164706, 0.164706, 0)

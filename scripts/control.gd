@@ -7,8 +7,7 @@ var setting_on = false
 var murl = "https://galvinvoltag.github.io/galvinvoltag.com/nomann"
 
 
-func add_note_from_json(str : String):
-	var nt = JSON.parse_string(str)
+func add_note_from_json(nt : Dictionary):
 	var sss = []
 	if nt.has("settings"):
 		sss = nt["settings"]
@@ -41,7 +40,7 @@ func add_note_from_url(url : String):
 	nt["title"] = title
 	nt["ingredients"] = notes
 	nt["checks"] = checks
-	add_note_NR(nt["title"], nt["ingredients"], nt["checks"], [])
+	add_note_NR(nt["title"], nt["ingredients"], nt["checks"], Global.DefaultNote["settings"])
 	print("added note from url --->", checks)
 
 # Called when the node enters the scene tree for the first time.
@@ -49,6 +48,7 @@ func _ready():
 	#add_note_from_url("/title=[shake]To do for app/notes=[1][u]customization[1][color=brown]sharing notes[0][font_size=99]rearrangement[0][pulse][b]sound effects[0][rainbow]animations")
 	Global.control = $"."
 	Global.notetop = %NotesTop
+	Global.defaultnote = %"Default Note"
 	Global.Load()
 	for nt in Global.AllNotes:
 		var sss = []
@@ -59,6 +59,7 @@ func _ready():
 	%SettingsM.size.y = get_viewport_rect().size.y
 	%ExtJson.text = ("\n>" + $Deeplink.get_link_path())
 	add_note_from_url($Deeplink.get_link_path())
+	Global.Refresh()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -100,7 +101,7 @@ func add_note_NR(title, ingredients, checks, settings, skiporder = false):
 
 func _on_add_pressed():
 	note_count += 1
-	add_note("New Note", ["..."], [false])
+	add_note_from_json(Global.DefaultNote)
 	
 func carry_note_down(index):
 	print("CALLED ", index)
@@ -147,3 +148,10 @@ func _on_clear_ext_pressed():
 func _on_deeplink_deeplink_received(url):
 	%ExtJson.text = ("\n>" + $Deeplink.get_link_path())
 	add_note_from_url($Deeplink.get_link_path())
+	Global.Refresh()
+	$Deeplink.clear_data()
+
+
+func _on_sve_def_pressed():
+	Global.DefaultNote = Global.defaultnote.get_note_json()
+	Global.save_default_note()

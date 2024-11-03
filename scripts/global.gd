@@ -2,6 +2,7 @@ extends Node
 
 var control : Control
 var notetop
+var defaultnote
 
 var Stt_Alert_Share = true
 
@@ -18,19 +19,19 @@ var DefaultColors : Array = [
 	"2a2a2a00",
 ]
 
-var SharedNote : Dictionary = {
-	"title" = "SharedNote%42ERR&nullptr0x000066",
-		"ingredients" = [
-			"",
-			"",
-			"&nullptr0x000066"
-		],
-		"checks" = [
-			false,
-			false,
-			false
-		]
-	}
+var DefaultNote : Dictionary = {
+	"title" = "New Note",
+	"ingredients" = [
+		"one",
+		"two",
+		"three"
+	],
+	"checks" = [
+		true,
+		true,
+		false
+	]
+}
 
 var AllNotes : Array = [
 	{
@@ -59,6 +60,12 @@ var AllNotes : Array = [
 	}
 ]
 
+func RefreshLater():
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	Refresh()
+
 func Refresh():
 	AllNotes.clear()
 	var cont = notetop
@@ -83,30 +90,37 @@ func Refresh():
 	
 func Load():
 	AllNotes.clear()
-	AllNotes = JSON.parse_string(FileAccess.get_file_as_string("user://file_data.json"))
+	if JSON.parse_string(FileAccess.get_file_as_string("user://file_data.json")) != null:
+		AllNotes = JSON.parse_string(FileAccess.get_file_as_string("user://file_data.json"))
+	if JSON.parse_string(FileAccess.get_file_as_string("user://AppData.json")) != null:
+		AppData = JSON.parse_string(FileAccess.get_file_as_string("user://AppData.json"))
+	defaultnote.match_note_to_json(DefaultNote)
 	print(AllNotes)
+
+func save_default_note():
+	var dnf = FileAccess.open("user://defaultnote.json", FileAccess.WRITE)
+	dnf.store_string(JSON.stringify(DefaultNote))
+	dnf.close()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if OS.has_feature("Android"):
-		var args = OS.get_cmdline_args()
-		for arg in args:
-			if arg.begins_with("nomann://note/"):
-				var data = arg.substr(13)
-				
-	if Engine.has_singleton("GodotApp"):
-		var godot_app = Engine.get_singleton("GodotApp")
-		var url_data = godot_app.getUrlData()
-		print("UrlData: ", url_data)
-	else:
-		print("No Singleton")
-	var data = FileAccess.get_file_as_string("user://file_data.json")
+	var data = FileAccess.get_file_as_string("user://AppData.json")
+	if JSON.parse_string(data) == null:
+		data = FileAccess.open("user://AppData.json", FileAccess.WRITE)
+		data.store_string("")
+		data.close()
+	data = FileAccess.get_file_as_string("user://file_data.json")
 	if JSON.parse_string(data) != null:
 		AllNotes = JSON.parse_string(data)
 	else:
 		var file = FileAccess.open("user://file_data.json", FileAccess.WRITE)
 		file.store_line(JSON.stringify(AllNotes))
-	
+	var dnf = FileAccess.get_file_as_string("user://defaultnote.json")
+	if JSON.parse_string(dnf) != null:
+		DefaultNote = JSON.parse_string(dnf)
+	else:
+		var file = FileAccess.open("user://defaultnote.json", FileAccess.WRITE)
+		file.store_line(JSON.stringify(DefaultNote))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
