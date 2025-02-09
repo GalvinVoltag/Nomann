@@ -1,12 +1,15 @@
-[gd_scene load_steps=24 format=3 uid="uid://b64qrmwyupmhd"]
+[gd_scene load_steps=29 format=3 uid="uid://b64qrmwyupmhd"]
 
 [ext_resource type="Script" path="res://scripts/control.gd" id="1_68oic"]
+[ext_resource type="Script" path="res://addons/SharePlugin/Share.gd" id="2_4l02d"]
 [ext_resource type="Texture2D" uid="uid://bd1w4wyxl68sq" path="res://icons/Settings.png" id="2_aka5p"]
 [ext_resource type="Texture2D" uid="uid://b28hnauo7cnyp" path="res://icons/Add.png" id="2_w5wxl"]
 [ext_resource type="Texture2D" uid="uid://nwg42uf1s000" path="res://icons/Arrow_Back.png" id="4_m5rv1"]
 [ext_resource type="PackedScene" uid="uid://d21n0oa01l2kr" path="res://scenes/value.tscn" id="5_bajle"]
 [ext_resource type="Script" path="res://addons/DeeplinkPlugin/Deeplink.gd" id="6_1xa06"]
+[ext_resource type="Script" path="res://scenes/setting.gd" id="6_n6c2q"]
 [ext_resource type="PackedScene" uid="uid://6xfn4nq2o6t2" path="res://scenes/note.tscn" id="6_uft3y"]
+[ext_resource type="Script" path="res://scenes/dialog_bringer.gd" id="9_orgyt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amku1"]
 bg_color = Color(1, 0.941176, 0.121569, 1)
@@ -44,8 +47,6 @@ content_margin_top = 64.0
 content_margin_right = 12.0
 content_margin_bottom = 64.0
 bg_color = Color(0.129558, 0.129559, 0.129558, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tme7i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxicq"]
 content_margin_left = 18.0
@@ -95,30 +96,51 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2ajp"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkqxe"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0ihj"]
-content_margin_left = 18.0
-content_margin_right = 18.0
-bg_color = Color(0.141176, 0.631373, 0.145098, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xo817"]
+bg_color = Color(0.30816, 0.72, 0.0864, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 48
+border_width_bottom = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1klh"]
-content_margin_left = 18.0
-content_margin_right = 18.0
-bg_color = Color(0.501961, 0.156863, 0.156863, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0nnt"]
+bg_color = Color(0.32, 0.0128, 0.0128, 1)
+border_width_left = 48
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph25j"]
 bg_color = Color(0.576471, 0.576471, 0.576471, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_31n46"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6wfc"]
+bg_color = Color(0.136826, 0.136826, 0.136826, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5k7j"]
+bg_color = Color(0.186, 0.62, 0.186, 1)
+corner_radius_top_left = 44
+corner_radius_top_right = 44
+corner_radius_bottom_right = 44
+corner_radius_bottom_left = 44
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1isl"]
+bg_color = Color(0.61, 0.244, 0.244, 1)
+corner_radius_top_left = 44
+corner_radius_top_right = 44
+corner_radius_bottom_right = 44
+corner_radius_bottom_left = 44
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -128,6 +150,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_68oic")
+
+[node name="VersionControl" type="HTTPRequest" parent="."]
+
+[node name="Share" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_4l02d")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -283,15 +311,13 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 32
 
-[node name="HSlider" type="HSlider" parent="SettingsM/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 64)
+[node name="VersionText" type="RichTextLabel" parent="SettingsM/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_styles/slider = SubResource("StyleBoxFlat_tme7i")
-max_value = 255.0
-value = 19.0
-rounded = true
-tick_count = 32
-ticks_on_borders = true
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "."
+fit_content = true
 
 [node name="SttBck" type="Button" parent="SettingsM/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 120)
@@ -379,16 +405,39 @@ bbcode_enabled = true
 text = "[center][u]Other Settings"
 fit_content = true
 
-[node name="AlertStt" type="Button" parent="SettingsM/ScrollContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SettingsM/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="Settings" type="VBoxContainer" parent="SettingsM/ScrollContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Setting" type="HBoxContainer" parent="SettingsM/ScrollContainer/VBoxContainer/MarginContainer/Settings"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+script = ExtResource("6_n6c2q")
+
+[node name="Title" type="RichTextLabel" parent="SettingsM/ScrollContainer/VBoxContainer/MarginContainer/Settings/Setting"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 46
+text = "check versions >>"
+fit_content = true
+
+[node name="Switch" type="Button" parent="SettingsM/ScrollContainer/VBoxContainer/MarginContainer/Settings/Setting"]
+custom_minimum_size = Vector2(120, 64)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 48
-theme_override_styles/focus = SubResource("StyleBoxEmpty_l2ajp")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i0ihj")
-theme_override_styles/normal = SubResource("StyleBoxFlat_l1klh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qkqxe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xo817")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b0nnt")
 toggle_mode = true
 button_pressed = true
-text = "Alert When Sharing"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="SettingsM/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -460,23 +509,18 @@ fit_content = true
 
 [node name="PanelContainer" type="PanelContainer" parent="SettingsM/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ph25j")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsM/ScrollContainer/VBoxContainer/PanelContainer"]
+[node name="Margin" type="MarginContainer" parent="SettingsM/ScrollContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/separation = 16
+mouse_filter = 2
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_bottom = 80
 
-[node name="Default Note" parent="SettingsM/ScrollContainer/VBoxContainer/PanelContainer/VBoxContainer" instance=ExtResource("6_uft3y")]
+[node name="Default Note" parent="SettingsM/ScrollContainer/VBoxContainer/PanelContainer/Margin" instance=ExtResource("6_uft3y")]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="SveDef" type="Button" parent="SettingsM/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 46
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ym5j1")
-theme_override_styles/normal = SubResource("StyleBoxFlat_602xs")
-text = "Save Preset"
 
 [node name="PanelContainer2" type="PanelContainer" parent="SettingsM/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 800)
@@ -501,12 +545,74 @@ sliders_visible = false
 hex_visible = false
 presets_visible = false
 
+[node name="UpdateDialog" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -197.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+script = ExtResource("9_orgyt")
+
+[node name="Mrg" type="MarginContainer" parent="UpdateDialog"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="UpdateDialog/Mrg"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m6wfc")
+
+[node name="V" type="VBoxContainer" parent="UpdateDialog/Mrg"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="m" type="RichTextLabel" parent="UpdateDialog/Mrg/V"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+fit_content = true
+
+[node name="dialogue" type="RichTextLabel" parent="UpdateDialog/Mrg/V"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]There is a new version available, update now?"
+fit_content = true
+
+[node name="H" type="HBoxContainer" parent="UpdateDialog/Mrg/V"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 45
+
+[node name="Yes" type="Button" parent="UpdateDialog/Mrg/V/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxFlat_e5k7j")
+text = "Yes"
+
+[node name="No" type="Button" parent="UpdateDialog/Mrg/V/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxFlat_f1isl")
+text = "No"
+
 [connection signal="pressed" from="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/R/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/VSplitContainer/Header/MarginContainer/Head/Dn/L/Add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="SettingsM/ScrollContainer/VBoxContainer/SttBck" to="." method="_on_stt_bck_pressed"]
 [connection signal="pressed" from="SettingsM/ScrollContainer/VBoxContainer/HBoxContainer/Paste" to="." method="_on_paste_pressed"]
 [connection signal="pressed" from="SettingsM/ScrollContainer/VBoxContainer/HExtBt/HBoxContainer/ClearExt" to="." method="_on_clear_ext_pressed"]
 [connection signal="pressed" from="SettingsM/ScrollContainer/VBoxContainer/HExtBt/AddExt" to="." method="_on_add_ext_pressed"]
-[connection signal="toggled" from="SettingsM/ScrollContainer/VBoxContainer/AlertStt" to="." method="_on_alert_stt_toggled"]
-[connection signal="pressed" from="SettingsM/ScrollContainer/VBoxContainer/SveDef" to="." method="_on_sve_def_pressed"]
 [connection signal="deeplink_received" from="Deeplink" to="." method="_on_deeplink_deeplink_received"]

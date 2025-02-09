@@ -27,196 +27,247 @@
 20        android:required="true" />
 20-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:16:9-32
 21
-22    <application
-22-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:18:5-69:19
-23        android:allowBackup="false"
-23-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:20:9-36
-24        android:appCategory="productivity"
-24-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:22:9-35
-25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-25-->[androidx.core:core:1.8.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\245f1aa0863a677574781ac0a1900f6e\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
-26        android:debuggable="true"
-27        android:extractNativeLibs="false"
-28        android:hasFragileUserData="false"
-28-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:24:9-43
-29        android:icon="@mipmap/icon"
-29-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:21:9-36
-30        android:isGame="false"
-30-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:23:9-30
-31        android:label="@string/godot_project_name_string"
-31-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:19:9-58
-32        android:requestLegacyExternalStorage="false" >
-32-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:25:9-53
-33        <activity
-33-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:37:9-67:20
-34            android:name="com.godot.game.GodotApp"
-34-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:38:13-37
-35            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|density|keyboard|navigation|screenLayout|uiMode"
-35-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:45:13-141
-36            android:excludeFromRecents="false"
-36-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:42:13-47
-37            android:exported="true"
-37-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:43:13-36
-38            android:label="@string/godot_project_name_string"
-38-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:39:13-62
-39            android:launchMode="singleInstancePerTask"
-39-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:41:13-55
-40            android:resizeableActivity="true"
-40-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:46:13-47
-41            android:screenOrientation="portrait"
-41-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:44:13-50
-42            android:theme="@style/GodotAppSplashTheme" >
-42-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:40:13-55
-43            <intent-filter>
-43-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:49:13-53:29
-44                <action android:name="android.intent.action.MAIN" />
-44-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:50:17-69
-44-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:50:25-66
-45
-46                <category android:name="android.intent.category.DEFAULT" />
-46-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:51:17-76
-46-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:51:27-73
-47                <category android:name="android.intent.category.LAUNCHER" />
-47-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:52:17-77
-47-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:52:27-74
-48            </intent-filter>
-49            <intent-filter
-49-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:27:1-32:17
-50                android:autoVerify="true"
-50-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:27:33-58
-51                android:label="" >
-51-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:27:16-32
-52                <action android:name="android.intent.action.VIEW" />
-52-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:55:17-69
-52-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:55:25-66
-53
-54                <category android:name="android.intent.category.DEFAULT" />
-54-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:51:17-76
-54-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:51:27-73
-55                <category android:name="android.intent.category.BROWSABLE" />
-55-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:57:17-78
-55-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:57:27-75
-56
-57                <data
-57-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:59:17-48
-58                    android:host="note"
-58-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:31:32-51
-59                    android:pathPrefix=""
-59-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:31:52-73
-60                    android:scheme="nomann" />
-60-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:59:23-46
-61            </intent-filter>
-62        </activity>
+22    <uses-permission android:name="android.permission.INTERNET" />
+22-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:11:5-67
+22-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:11:22-64
+23
+24    <permission
+24-->[androidx.core:core:1.13.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\d213da2f82d8e91a1d1ce2b5a85b44ef\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+25        android:name="com.galvinvoltag.nomann.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+25-->[androidx.core:core:1.13.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\d213da2f82d8e91a1d1ce2b5a85b44ef\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+26        android:protectionLevel="signature" />
+26-->[androidx.core:core:1.13.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\d213da2f82d8e91a1d1ce2b5a85b44ef\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+27
+28    <uses-permission android:name="com.galvinvoltag.nomann.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+28-->[androidx.core:core:1.13.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\d213da2f82d8e91a1d1ce2b5a85b44ef\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+28-->[androidx.core:core:1.13.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\d213da2f82d8e91a1d1ce2b5a85b44ef\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+29
+30    <application
+30-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:18:5-69:19
+31        android:allowBackup="false"
+31-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:20:9-36
+32        android:appCategory="productivity"
+32-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:22:9-35
+33        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+33-->[androidx.core:core:1.13.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\d213da2f82d8e91a1d1ce2b5a85b44ef\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+34        android:debuggable="true"
+35        android:extractNativeLibs="false"
+36        android:hasFragileUserData="false"
+36-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:24:9-43
+37        android:icon="@mipmap/icon"
+37-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:21:9-36
+38        android:isGame="false"
+38-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:23:9-30
+39        android:label="@string/godot_project_name_string"
+39-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:19:9-58
+40        android:requestLegacyExternalStorage="false" >
+40-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:25:9-53
+41        <provider
+41-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:23:1-28:12
+42            android:name="org.godotengine.plugin.android.share.ShareFileProvider"
+42-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:23:11-80
+43            android:authorities="com.galvinvoltag.nomann.sharefileprovider"
+43-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:25:3-66
+44            android:exported="false"
+44-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:24:3-27
+45            android:grantUriPermissions="true" >
+45-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:26:3-37
+46            <meta-data
+46-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:27:2-109
+47                android:name="android.support.FILE_PROVIDER_PATHS"
+47-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:27:13-63
+48                android:resource="@xml/file_provider_paths" />
+48-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:27:64-107
+49        </provider>
+50
+51        <activity
+51-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:37:9-67:20
+52            android:name="com.godot.game.GodotApp"
+52-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:38:13-37
+53            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|density|keyboard|navigation|screenLayout|uiMode"
+53-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:45:13-141
+54            android:excludeFromRecents="false"
+54-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:42:13-47
+55            android:exported="true"
+55-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:43:13-36
+56            android:label="@string/godot_project_name_string"
+56-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:39:13-62
+57            android:launchMode="singleInstancePerTask"
+57-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:41:13-55
+58            android:resizeableActivity="true"
+58-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:46:13-47
+59            android:screenOrientation="portrait"
+59-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:44:13-50
+60            android:theme="@style/GodotAppSplashTheme" >
+60-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:40:13-55
+61            <intent-filter>
+61-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:49:13-53:29
+62                <action android:name="android.intent.action.MAIN" />
+62-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:50:17-69
+62-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:50:25-66
 63
-64        <profileable
-64-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:27:9-30:36
-65            android:enabled="true"
-65-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:29:13-35
-66            android:shell="true" /> <!-- Records the version of the Godot editor used for building -->
-66-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:28:13-33
-67        <meta-data
-68            android:name="org.godotengine.editor.version"
-69            android:value="4.3.stable" /> <!-- Records the version of the Godot library -->
-70        <meta-data
-70-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:12:9-14:44
-71            android:name="org.godotengine.library.version"
-71-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:13:13-59
-72            android:value="4.3.0.stable" />
-72-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:14:13-41
-73
-74        <service android:name="org.godotengine.godot.GodotDownloaderService" />
-74-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:16:9-80
-74-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:16:18-77
-75
-76        <activity
-76-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:18:9-22:75
-77            android:name="org.godotengine.godot.utils.ProcessPhoenix"
-77-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:19:13-70
-78            android:exported="false"
-78-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:20:13-37
-79            android:process=":phoenix"
-79-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:21:13-39
-80            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-80-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:22:13-72
+64                <category android:name="android.intent.category.DEFAULT" />
+64-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:51:17-76
+64-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:51:27-73
+65                <category android:name="android.intent.category.LAUNCHER" />
+65-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:52:17-77
+65-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:52:27-74
+66            </intent-filter>
+67            <intent-filter
+67-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:36:1-41:17
+68                android:autoVerify="true"
+68-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:36:33-58
+69                android:label="" >
+69-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:36:16-32
+70                <action android:name="android.intent.action.VIEW" />
+70-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:55:17-69
+70-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:55:25-66
+71
+72                <category android:name="android.intent.category.DEFAULT" />
+72-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:51:17-76
+72-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:51:27-73
+73                <category android:name="android.intent.category.BROWSABLE" />
+73-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:57:17-78
+73-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:57:27-75
+74
+75                <data
+75-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:59:17-48
+76                    android:host="note"
+76-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:40:32-51
+77                    android:pathPrefix=""
+77-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:40:52-73
+78                    android:scheme="nomann" />
+78-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:59:23-46
+79            </intent-filter>
+80        </activity>
 81
-82        <provider
-82-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:24:9-32:20
-83            android:name="androidx.core.content.FileProvider"
-83-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:25:13-62
-84            android:authorities="com.galvinvoltag.nomann.fileprovider"
-84-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:26:13-64
-85            android:exported="false"
-85-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:27:13-37
-86            android:grantUriPermissions="true" >
-86-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:28:13-47
-87            <meta-data
-87-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:29:13-31:64
-88                android:name="android.support.FILE_PROVIDER_PATHS"
-88-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:30:17-67
-89                android:resource="@xml/godot_provider_paths" />
-89-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:31:17-61
-90        </provider>
+82        <profileable
+82-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:27:9-30:36
+83            android:enabled="true"
+83-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:29:13-35
+84            android:shell="true" /> <!-- Records the version of the Godot editor used for building -->
+84-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\AndroidManifest.xml:28:13-33
+85        <meta-data
+86            android:name="org.godotengine.editor.version"
+87            android:value="4.3.stable" /> <!-- Records the version of the Godot library -->
+88        <meta-data
+88-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:12:9-14:44
+89            android:name="org.godotengine.library.version"
+89-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:13:13-59
+90            android:value="4.3.0.stable" />
+90-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:14:13-41
 91
-92        <meta-data
-92-->[DeeplinkPlugin-3.0-debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\7b154834c03389876eedbe287639733a\transformed\jetified-DeeplinkPlugin-3.0-debug\AndroidManifest.xml:8:9-10:86
-93            android:name="org.godotengine.plugin.v2.DeeplinkPlugin"
-93-->[DeeplinkPlugin-3.0-debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\7b154834c03389876eedbe287639733a\transformed\jetified-DeeplinkPlugin-3.0-debug\AndroidManifest.xml:9:13-68
-94            android:value="org.godotengine.plugin.android.deeplink.DeeplinkPlugin" />
-94-->[DeeplinkPlugin-3.0-debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\7b154834c03389876eedbe287639733a\transformed\jetified-DeeplinkPlugin-3.0-debug\AndroidManifest.xml:10:13-83
-95
-96        <provider
-96-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
-97            android:name="androidx.startup.InitializationProvider"
-97-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:25:13-67
-98            android:authorities="com.galvinvoltag.nomann.androidx-startup"
-98-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:26:13-68
-99            android:exported="false" >
-99-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:27:13-37
-100            <meta-data
-100-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
-101                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-101-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
-102                android:value="androidx.startup" />
-102-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
-103        </provider>
-104
-105        <receiver
-105-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
-106            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-106-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
-107            android:directBootAware="false"
-107-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
-108            android:enabled="true"
-108-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
-109            android:exported="true"
-109-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
-110            android:permission="android.permission.DUMP" >
-110-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
-111            <intent-filter>
-111-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
-112                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-112-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
-112-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
-113            </intent-filter>
-114            <intent-filter>
-114-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
-115                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-115-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
-115-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
-116            </intent-filter>
-117            <intent-filter>
-117-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
-118                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-118-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-118-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
-119            </intent-filter>
-120            <intent-filter>
-120-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
-121                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-121-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-121-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
-122            </intent-filter>
-123        </receiver>
-124    </application>
-125
-126</manifest>
+92        <service android:name="org.godotengine.godot.GodotDownloaderService" />
+92-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:16:9-80
+92-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:16:18-77
+93
+94        <activity
+94-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:18:9-22:75
+95            android:name="org.godotengine.godot.utils.ProcessPhoenix"
+95-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:19:13-70
+96            android:exported="false"
+96-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:20:13-37
+97            android:process=":phoenix"
+97-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:21:13-39
+98            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+98-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:22:13-72
+99
+100        <provider
+100-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:24:9-32:20
+101            android:name="androidx.core.content.FileProvider"
+101-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:25:13-62
+102            android:authorities="com.galvinvoltag.nomann.fileprovider"
+102-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:26:13-64
+103            android:exported="false"
+103-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:27:13-37
+104            android:grantUriPermissions="true" >
+104-->[godot-lib.template_debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\ec78cfc85816bd35fa163c180d5f4394\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:28:13-47
+105            <meta-data
+105-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:27:2-109
+106                android:name="android.support.FILE_PROVIDER_PATHS"
+106-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:27:13-63
+107                android:resource="@xml/godot_provider_paths" />
+107-->C:\Users\AADUMAN\Documents\GODOT_4\Projects\NOM\NOMANN\android\build\src\debug\AndroidManifest.xml:27:64-107
+108        </provider>
+109
+110        <meta-data
+110-->[DeeplinkPlugin-3.0-debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\7b154834c03389876eedbe287639733a\transformed\jetified-DeeplinkPlugin-3.0-debug\AndroidManifest.xml:8:9-10:86
+111            android:name="org.godotengine.plugin.v2.DeeplinkPlugin"
+111-->[DeeplinkPlugin-3.0-debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\7b154834c03389876eedbe287639733a\transformed\jetified-DeeplinkPlugin-3.0-debug\AndroidManifest.xml:9:13-68
+112            android:value="org.godotengine.plugin.android.deeplink.DeeplinkPlugin" />
+112-->[DeeplinkPlugin-3.0-debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\7b154834c03389876eedbe287639733a\transformed\jetified-DeeplinkPlugin-3.0-debug\AndroidManifest.xml:10:13-83
+113        <meta-data
+113-->[SharePlugin-3.0-debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\658ce9b568b468d6fd7988a8a3ffe7ee\transformed\jetified-SharePlugin-3.0-debug\AndroidManifest.xml:8:9-10:80
+114            android:name="org.godotengine.plugin.v2.SharePlugin"
+114-->[SharePlugin-3.0-debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\658ce9b568b468d6fd7988a8a3ffe7ee\transformed\jetified-SharePlugin-3.0-debug\AndroidManifest.xml:9:13-65
+115            android:value="org.godotengine.plugin.android.share.SharePlugin" />
+115-->[SharePlugin-3.0-debug.aar] C:\Users\AADUMAN\.gradle\caches\transforms-3\658ce9b568b468d6fd7988a8a3ffe7ee\transformed\jetified-SharePlugin-3.0-debug\AndroidManifest.xml:10:13-77
+116
+117        <provider
+117-->[androidx.emoji2:emoji2:1.3.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\eaa12299b47891ae93694a325129c1a3\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+118            android:name="androidx.startup.InitializationProvider"
+118-->[androidx.emoji2:emoji2:1.3.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\eaa12299b47891ae93694a325129c1a3\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:25:13-67
+119            android:authorities="com.galvinvoltag.nomann.androidx-startup"
+119-->[androidx.emoji2:emoji2:1.3.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\eaa12299b47891ae93694a325129c1a3\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:26:13-68
+120            android:exported="false" >
+120-->[androidx.emoji2:emoji2:1.3.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\eaa12299b47891ae93694a325129c1a3\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:27:13-37
+121            <meta-data
+121-->[androidx.emoji2:emoji2:1.3.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\eaa12299b47891ae93694a325129c1a3\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+122                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+122-->[androidx.emoji2:emoji2:1.3.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\eaa12299b47891ae93694a325129c1a3\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:30:17-75
+123                android:value="androidx.startup" />
+123-->[androidx.emoji2:emoji2:1.3.0] C:\Users\AADUMAN\.gradle\caches\transforms-3\eaa12299b47891ae93694a325129c1a3\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:31:17-49
+124            <meta-data
+124-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\AADUMAN\.gradle\caches\transforms-3\f2c8427f0c51da91cce4cdafae00683a\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+125                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+125-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\AADUMAN\.gradle\caches\transforms-3\f2c8427f0c51da91cce4cdafae00683a\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+126                android:value="androidx.startup" />
+126-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\AADUMAN\.gradle\caches\transforms-3\f2c8427f0c51da91cce4cdafae00683a\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+127            <meta-data
+127-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+128                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+128-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+129                android:value="androidx.startup" />
+129-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+130        </provider>
+131
+132        <receiver
+132-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+133            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+133-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+134            android:directBootAware="false"
+134-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+135            android:enabled="true"
+135-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+136            android:exported="true"
+136-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+137            android:permission="android.permission.DUMP" >
+137-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+138            <intent-filter>
+138-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+139                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+140            </intent-filter>
+141            <intent-filter>
+141-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+142                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+142-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+142-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+143            </intent-filter>
+144            <intent-filter>
+144-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+145                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+145-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+145-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+146            </intent-filter>
+147            <intent-filter>
+147-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+148                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+148-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+148-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\AADUMAN\.gradle\caches\transforms-3\618293b988a94b2ad64fc8615e872ffd\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+149            </intent-filter>
+150        </receiver>
+151    </application>
+152
+153</manifest>

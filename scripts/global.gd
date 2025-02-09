@@ -3,11 +3,32 @@ extends Node
 var control : Control
 var notetop
 var defaultnote
+var share
+var setting
 
-var Stt_Alert_Share = true
+var overwrite = false
+
+var version = "v0.1.4-alpha.1"
 
 var AppData : Dictionary = {
-	
+	"DefaultNote": {
+		"title" = "New Note",
+		"ingredients" = [
+			"one",
+			"two",
+			"three"
+		],
+		"checks" = [
+			true,
+			true,
+			false
+		]
+	},
+	"Settings": {
+		"automatic update": true,
+		"test setting": false,
+		"automatic save": false,
+	}
 }
 
 var DefaultColors : Array = [
@@ -84,23 +105,48 @@ func Refresh():
 			i+=1
 		AllNotes.append(current)
 	print_rich("[color=orange]", AllNotes)
-	var file = FileAccess.open("user://file_data.json", FileAccess.WRITE)
-	file.store_string(JSON.stringify(AllNotes))
-	file.close()
-	
+
+
 func Load():
+	if overwrite: save_everything()
 	AllNotes.clear()
 	if JSON.parse_string(FileAccess.get_file_as_string("user://file_data.json")) != null:
 		AllNotes = JSON.parse_string(FileAccess.get_file_as_string("user://file_data.json"))
 	if JSON.parse_string(FileAccess.get_file_as_string("user://AppData.json")) != null:
 		AppData = JSON.parse_string(FileAccess.get_file_as_string("user://AppData.json"))
+	else: save_everything()
+	DefaultNote = AppData["DefaultNote"]
 	defaultnote.match_note_to_json(DefaultNote)
-	print(AllNotes)
+	print_rich("[color=gold] !!!!!!!!!!!!!!! initializing !!!!!!!!!!!!!!!")
+	print_rich("[color=gold]" + JSON.stringify(AppData))
+	print_rich("[color=gold]iiiiiiiiiiiiiiiiii intialized iiiiiiiiiiiiiiiiii[color=white]")
+	var first = true
+	for s in AppData["Settings"]:
+		if first:
+			setting.get_child(0).text = s
+			setting.get_child(1).button_pressed = AppData["Settings"][s]
+			first = false
+		else:
+			var newstt = setting.duplicate()
+			newstt.get_child(0).text = s
+			newstt.get_child(1).button_pressed = AppData["Settings"][s]
+			setting.get_parent().add_child(newstt)
+		print("for for for for for")
+
+func save_everything():
+	DefaultNote = (defaultnote.get_note_json())
+	AppData["DefaultNote"] = DefaultNote
+	var dnf = FileAccess.open("user://AppData.json", FileAccess.WRITE)
+	dnf.store_string(JSON.stringify(AppData))
+	dnf.close()
+	var file = FileAccess.open("user://file_data.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(AllNotes))
+	file.close()
+	#save_default_note()
 
 func save_default_note():
-	var dnf = FileAccess.open("user://defaultnote.json", FileAccess.WRITE)
-	dnf.store_string(JSON.stringify(DefaultNote))
-	dnf.close()
+	AppData["DefaultNote"] = DefaultNote
+	save_everything()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -115,12 +161,6 @@ func _ready():
 	else:
 		var file = FileAccess.open("user://file_data.json", FileAccess.WRITE)
 		file.store_line(JSON.stringify(AllNotes))
-	var dnf = FileAccess.get_file_as_string("user://defaultnote.json")
-	if JSON.parse_string(dnf) != null:
-		DefaultNote = JSON.parse_string(dnf)
-	else:
-		var file = FileAccess.open("user://defaultnote.json", FileAccess.WRITE)
-		file.store_line(JSON.stringify(DefaultNote))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

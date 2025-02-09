@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="NOMANN"
+config/version="0.1.4.beta"
 run/main_scene="res://scenes/control.tscn"
+config/quit_on_go_back=false
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -27,7 +29,7 @@ window/handheld/orientation=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/DeeplinkPlugin/plugin.cfg")
+enabled=PackedStringArray("res://addons/DeeplinkPlugin/plugin.cfg", "res://addons/SharePlugin/plugin.cfg")
 
 [input_devices]
 

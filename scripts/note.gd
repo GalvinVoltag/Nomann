@@ -164,10 +164,11 @@ func _on_title_toggle_toggled(toggled_on):
 	%Head.visible = toggled_on
 
 func _on_shr_pressed():
+	Global.share.share_text(get_note_json()["title"], "", get_note_url())
 	#singleton.shareText("tite", "subject", "Test line share complete")
 	#DisplayServer.clipboard_set(JSON.stringify(get_note_json(), "   ", true, false))
-	DisplayServer.clipboard_set(get_note_url())
-	if Global.Stt_Alert_Share:
-		OS.alert("The list has been copied to clipboard", "Success!")
+	#DisplayServer.clipboard_set(get_note_url())
+	#if Global.Stt_Alert_Share:
+		#OS.alert("The list has been copied to clipboard", "Success!")
 	
 	
