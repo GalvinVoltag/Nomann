@@ -1,5 +1,7 @@
 extends Node
 
+signal appdata_loading_done
+
 var control : Control
 var notetop
 var defaultnote
@@ -8,7 +10,7 @@ var setting
 
 var overwrite = false
 
-var version = "v0.1.4-alpha.1"
+var version = "v0.1.4-alpha.2"
 
 var AppData : Dictionary = {
 	"DefaultNote": {
@@ -28,6 +30,9 @@ var AppData : Dictionary = {
 		"automatic update": true,
 		"test setting": false,
 		"automatic save": false,
+	},
+	"Colors": {
+		"Header Color": "fff01f"
 	}
 }
 
@@ -120,6 +125,7 @@ func Load():
 	print_rich("[color=gold] !!!!!!!!!!!!!!! initializing !!!!!!!!!!!!!!!")
 	print_rich("[color=gold]" + JSON.stringify(AppData))
 	print_rich("[color=gold]iiiiiiiiiiiiiiiiii intialized iiiiiiiiiiiiiiiiii[color=white]")
+	appdata_loading_done.emit()
 	var first = true
 	for s in AppData["Settings"]:
 		if first:

@@ -8,6 +8,7 @@ extends VBoxContainer
 @export var value_c : Color
 @export var value_i : int
 @export var does_save : bool = false
+@export var global_save : bool = false
 
 var hide_it = false
 
@@ -57,6 +58,12 @@ func _ready():
 		if does_save:
 			if Global.AppData.has(text):
 				value_c = Color(Global.AppData[text])
+	await Global.appdata_loading_done
+	if global_save:
+		if !Global.AppData.has("Colors"): Global.AppData["Colors"] = {}
+		if !Global.AppData["Colors"].has(text): Global.AppData["Colors"][text] = value_c.to_html()
+		set_value(Color(Global.AppData["Colors"][text]))
+		print_rich("[color=#" + Global.AppData["Colors"][text] + "]" + Global.AppData["Colors"][text] + " ---> " + text)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -68,11 +75,13 @@ func _process(delta):
 
 func _on_slpha_slider_stop():
 	if does_save:
-		Global.AppData[text] = str(value_c.to_html())
+		Global.AppData["Colors"][text] = str(value_c.to_html())
 		print(Global.AppData)
 
 
 func _on_c_btn_color_changed(color):
+	Global.AppData["Colors"][text] = str(value_c.to_html())
+	print(Global.AppData["Colors"][text])
 	DisplayServer.virtual_keyboard_hide()
 	hide_it = false
 	value_c = color

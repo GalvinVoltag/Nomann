@@ -354,7 +354,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 48
-text = "Paste list JSON:"
+text = "command_line"
 fit_content = true
 
 [node name="Paste" type="Button" parent="SettingsM/ScrollContainer/VBoxContainer/HBoxContainer"]
@@ -364,13 +364,13 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_nxicq")
 theme_override_styles/normal = SubResource("StyleBoxFlat_j12r0")
 text = "Paste from clipboard"
 
-[node name="ExtJson" type="TextEdit" parent="SettingsM/ScrollContainer/VBoxContainer"]
+[node name="cmd" type="TextEdit" parent="SettingsM/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 128)
+custom_minimum_size = Vector2(0, 628)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_ahsl4")
-scroll_fit_content_height = true
+scroll_past_end_of_file = true
 
 [node name="HExtBt" type="HBoxContainer" parent="SettingsM/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -395,7 +395,7 @@ size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 48
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ym5j1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_602xs")
-text = "Add Note"
+text = "Run"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SettingsM/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -462,6 +462,7 @@ IsPanel = true
 target_values = ["bg_color"]
 value_c = Color(1, 0.941176, 0.121569, 1)
 does_save = true
+global_save = true
 
 [node name="pnl" parent="SettingsM/ScrollContainer/VBoxContainer/ColorRow1" instance=ExtResource("5_bajle")]
 layout_mode = 2
@@ -472,6 +473,7 @@ IsPanel = true
 target_values = ["border_color"]
 value_c = Color(0.545098, 0.513726, 0, 1)
 does_save = true
+global_save = true
 
 [node name="ColorRow2" type="HBoxContainer" parent="SettingsM/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -487,6 +489,7 @@ IsPanel = true
 target_values = ["bg_color"]
 value_c = Color(0.576471, 0.576471, 0.576471, 1)
 does_save = true
+global_save = true
 
 [node name="pnl" parent="SettingsM/ScrollContainer/VBoxContainer/ColorRow2" instance=ExtResource("5_bajle")]
 layout_mode = 2
@@ -497,6 +500,7 @@ IsPanel = true
 target_values = ["border_color"]
 value_c = Color(0.42365, 0.423651, 0.423651, 1)
 does_save = true
+global_save = true
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="SettingsM/ScrollContainer/VBoxContainer"]
 layout_mode = 2

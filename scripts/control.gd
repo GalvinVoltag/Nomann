@@ -112,7 +112,9 @@ func _notification(what):
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		setting_on = false
 	if what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_WM_CLOSE_REQUEST:
+		print_rich(   "[color=red]<=========================== PROGRAM CLOSING =================================>")
 		Global.save_everything()
+		print_rich("[color=orange]<===========================    SAVE DONE    =================================>")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -131,7 +133,7 @@ func _ready():
 		add_note_NR(nt["title"], nt["ingredients"], nt["checks"], sss, true)
 		print_rich("[color=green]", nt)
 	%SettingsM.size.y = get_viewport_rect().size.y
-	%ExtJson.text = ("\n>" + $Deeplink.get_link_path())
+	#%ExtJson.text = ("\n>" + $Deeplink.get_link_path())
 	add_note_from_url($Deeplink.get_link_path())
 	Global.Refresh()
 
@@ -198,24 +200,65 @@ func _on_settings_pressed():
 func _on_stt_bck_pressed():
 	setting_on = false
 
+func add_text(org:String, add:String):
+	org = org+add
 
 func _on_add_ext_pressed():
-	add_note_from_json(%ExtJson.text)
-	%ExtJson.clear()
+	var command = %cmd.get_line(%cmd.get_line_count()-1).split(" ", false)
+	%cmd.text += "\n"
+	match command[0]:
+		"help", "?", "h":
+			if command.size() > 1:
+				match command[1]:
+					"delmem", "dmm":
+						%cmd.text += """<?> Formatting: delmem ( AppData / defaultnote )
+"""
+					_:
+						%cmd.text += "[!!]Please specify a valid command!\n"
+			else:
+				%cmd.text += """<?>This command line interface has been added in v0.1.4-beta.2 for beta testers' convenience sake.
+			
+		A command will ignore any extra inputs,
+		e.g. a command with single input will ignore all other phrases you enter.
+		
+		Each command also has a three or less letter variant for convenience sake, 
+		commands are as follows:
+		
+		help, h     --> Show this list or learn how to format a command with 'help (command)'
+		delmem, dmm --> Delete a specified local storage file from the device
+"""
+			
+			
+			
+			
+		"delmem", "dmm":
+			if command.size() > 1:
+				match command[1]:
+					"AppData":
+						if DirAccess.remove_absolute(OS.get_user_data_dir() + "/AppData.json") == OK:
+							%cmd.text += ">AppData has successfully been removed.\n"
+						else:
+							%cmd.text += "[!!!]>An error occured whilst removing AppData!\n"
+					_:
+						%cmd.text += "[!!]Please specify a valid memory file!\n"
+			else:
+				%cmd.text += "[!!]Please specify the memory type to delete!\n"
+		_:
+			%cmd.text += "[!!]Unknown command!\n"
 
 
 func _on_paste_pressed():
-	%ExtJson.text = DisplayServer.clipboard_get()
+	pass
 
 func _on_clear_ext_pressed():
-	%ExtJson.clear()
+	pass
 
 
 
 
 
 func _on_deeplink_deeplink_received(url):
-	%ExtJson.text = ("\n>" + $Deeplink.get_link_path())
+	#%ExtJson.text = ("\n>" + $Deeplink.get_link_path())
 	add_note_from_url($Deeplink.get_link_path())
 	Global.Refresh()
 	$Deeplink.clear_data()
